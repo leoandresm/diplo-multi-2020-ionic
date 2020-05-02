@@ -1,17 +1,29 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Create Customer
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <form (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Name <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input type="text" required [(ngModel)]="customer.name" name="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Age <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input type="text" required [(ngModel)]="customer.age" name="age"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Video <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input type="file" (change)="upload($event)" accept=".mp4"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div class="ion-padding">
+      <ion-button type="submit" expand="block" class="ion-no-margin">Create</ion-button>
+    </div>
+  </form>
 </ion-content>
